@@ -9,6 +9,7 @@ export default class TaskRequestRepository implements TaskRepository {
     }
 
     async submitTask(id: string, result: number): Promise<void> {
+        console.log('submit task')
         try {
             const { data } = await axios.post('https://interview.adpeai.com/api/v1/submit-task', {
                 id: id,

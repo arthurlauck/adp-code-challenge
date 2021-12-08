@@ -1,16 +1,19 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
+import TaskController from './src/TaskController';
 import TaskRequestRepository from './src/TaskRequestRepository';
-import TaskService from './src/TaskService'
+import TaskService from './src/TaskService';
 
 const hostname: string = 'localhost';
 const port: number = 8000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
-    const taskRespository = new TaskRequestRepository
-    const teste = new TaskService(taskRespository)
-    teste.getTaskAndCalculate()
+    console.log('request')
+    if (request.url === '/' && request.method === 'GET') {
+        const taskController = new TaskController(new TaskService(new TaskRequestRepository))
+        return taskController.getTaskAndCalculate(request, response)
+    }
 
-    response.end('Hello world!');
+    response.end('Not found');
 });
 
 server.listen(port, hostname, () => {

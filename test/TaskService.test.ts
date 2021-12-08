@@ -24,12 +24,12 @@ describe('Task service test', () => {
                 return Promise.resolve()
             }
         }
-    });
+    })
 
     test("Get task and calculate", async () => {
         const taskService = new TaskService(new TaskRepositoryMock)
         await taskService.getTaskAndCalculate()
 
         expect(TaskRepositoryMock).toHaveBeenCalledTimes(1);
-    });
+    })
 })

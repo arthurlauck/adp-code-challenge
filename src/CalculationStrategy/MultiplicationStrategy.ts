@@ -1,7 +1,7 @@
 import CalculationStrategy from "./CalculationStrategy";
 
-export default class AdditionStrategy implements CalculationStrategy {
+export default class MultiplicationStrategy implements CalculationStrategy {
     calculate(left: number, right: number): number {
-        return left + right
+        return left * right
     }
 }

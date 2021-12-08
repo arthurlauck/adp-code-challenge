@@ -1,6 +1,10 @@
 import AdditionStrategy from "./CalculationStrategy/AdditionStrategy"
 import CalculationContext from "./CalculationStrategy/CalculationContext"
 import CalculationStrategy from "./CalculationStrategy/CalculationStrategy"
+import DivisionStrategy from "./CalculationStrategy/DivisionStrategy"
+import MultiplicationStrategy from "./CalculationStrategy/MultiplicationStrategy"
+import RemainderStrategy from "./CalculationStrategy/RemainderStrategy"
+import SubtractionStrategy from "./CalculationStrategy/SubtractionStrategy"
 
 export default class TaskEntity {
     private _id: string
@@ -40,6 +44,14 @@ export default class TaskEntity {
         switch (this.operation) {
             case 'addition':
                 return new AdditionStrategy
+            case 'multiplication':
+                return new MultiplicationStrategy
+            case 'subtraction':
+                return new SubtractionStrategy
+            case 'remainder':
+                return new RemainderStrategy
+            case 'division':
+                return new DivisionStrategy
         }
 
         throw new Error('Strategy not implemented')

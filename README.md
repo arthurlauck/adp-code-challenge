@@ -20,6 +20,12 @@ Without docker, you can run `npm install` and then `npm start`.
 
 It will be available, in the web, with the url as `localhost:8000`
 
+## Run Commands
+You can run this, continually with a command, It will run concurrent requests
+```
+npm run task-command
+```
+
 ## Testing
 For testing you can run `npm test`
 

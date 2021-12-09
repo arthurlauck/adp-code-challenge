@@ -6,8 +6,14 @@ import TaskError from '../../application/exception/TaskError';
 export default class TaskRequestRepository implements TaskRepository {
   // eslint-disable-next-line class-methods-use-this
   async getTask(): Promise<TaskEntity> {
-    const { data } = await axios.get('https://interview.adpeai.com/api/v1/get-task');
-    return new TaskEntity(data.id, data.operation, data.left, data.right);
+    try {
+      const { data } = await axios.get('https://interview.adpeai.com/api/v1/get-task', {
+        timeout: 5000,
+      });
+      return new TaskEntity(data.id, data.operation, data.left, data.right);
+    } catch (error) {
+      throw new TaskError('Something happened trying to get the task');
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -16,6 +22,8 @@ export default class TaskRequestRepository implements TaskRepository {
       await axios.post('https://interview.adpeai.com/api/v1/submit-task', {
         id,
         result,
+      }, {
+        timeout: 5000,
       });
     } catch (error: any) {
       switch (error.response?.status) {

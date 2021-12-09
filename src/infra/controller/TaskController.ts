@@ -6,7 +6,6 @@ export default class TaskController {
   constructor(private readonly taskService: TaskService) { }
 
   async getTaskAndCalculate(request: IncomingMessage, response: ServerResponse) {
-    response.setHeader('Content-Type', 'application/json');
     try {
       const result = await this.taskService.getTaskAndCalculate();
 

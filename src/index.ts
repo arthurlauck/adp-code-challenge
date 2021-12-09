@@ -6,12 +6,18 @@ import TaskRequestRepository from './infra/repository/TaskRequestRepository';
 const port: number = 8000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
+  // set default content type as json
+  response.setHeader('Content-Type', 'application/json');
+
   if (request.url === '/' && request.method === 'GET') {
     const taskController = new TaskController(new TaskService(new TaskRequestRepository()));
     return taskController.getTaskAndCalculate(request, response);
   }
 
-  return response.end('Not found');
+  response.statusCode = 404;
+  return response.end(JSON.stringify({
+    message: 'Not found',
+  }));
 });
 
 server.listen(port, () => {

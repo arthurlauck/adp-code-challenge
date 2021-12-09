@@ -16,6 +16,7 @@ export default class TaskEntity {
   }
 
   calculate(): number {
+    // This will search for a strategy and then executes it
     const context = new CalculationContext(this.getStrategy());
     return context.calculate(this.left, this.right);
   }

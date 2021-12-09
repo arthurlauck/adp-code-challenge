@@ -1,8 +1,8 @@
-import TaskRequestRepository from "../src/TaskRequestRepository";
-import TaskService from "../src/TaskService";
-import TaskEntity from "../src/TaskEntity";
+import TaskRequestRepository from "../src/infra/repository/TaskRequestRepository";
+import TaskEntity from "../src/domain/entity/TaskEntity";
+import TaskService from "../src/application/service/TaskService";
 
-jest.mock('../src/TaskRequestRepository')
+jest.mock('../src/infra/repository/TaskRequestRepository')
 const TaskRepositoryMock = TaskRequestRepository as jest.MockedClass<typeof TaskRequestRepository>;
 
 beforeEach(() => {
@@ -28,8 +28,9 @@ describe('Task service test', () => {
 
     test("Get task and calculate", async () => {
         const taskService = new TaskService(new TaskRepositoryMock)
-        await taskService.getTaskAndCalculate()
+        const result = await taskService.getTaskAndCalculate()
 
         expect(TaskRepositoryMock).toHaveBeenCalledTimes(1);
+        expect(result).toBe(4992480390629538)
     })
 })

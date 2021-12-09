@@ -1,4 +1,4 @@
-import TaskEntity from "../TaskEntity";
+import TaskEntity from "../../entity/TaskEntity";
 import CalculationStrategy from "./CalculationStrategy";
 
 export default class CalculationContext {

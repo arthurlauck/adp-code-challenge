@@ -1,4 +1,4 @@
-import TaskEntity from "./TaskEntity";
+import TaskEntity from "../entity/TaskEntity";
 
 export default interface TaskRepository {
     getTask(): Promise<TaskEntity>

@@ -1,4 +1,4 @@
-import TaskEntity from "../src/TaskEntity";
+import TaskEntity from "../src/domain/entity/TaskEntity";
 
 describe('Task Entity test', () => {
 

@@ -1,4 +1,4 @@
-import TaskRepository from "./TaskRepository";
+import TaskRepository from "../../domain/repository/TaskRepository"
 
 export default class TaskService {
     private taskRepository: TaskRepository

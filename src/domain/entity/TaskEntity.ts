@@ -1,10 +1,10 @@
-import AdditionStrategy from "./CalculationStrategy/AdditionStrategy"
-import CalculationContext from "./CalculationStrategy/CalculationContext"
-import CalculationStrategy from "./CalculationStrategy/CalculationStrategy"
-import DivisionStrategy from "./CalculationStrategy/DivisionStrategy"
-import MultiplicationStrategy from "./CalculationStrategy/MultiplicationStrategy"
-import RemainderStrategy from "./CalculationStrategy/RemainderStrategy"
-import SubtractionStrategy from "./CalculationStrategy/SubtractionStrategy"
+import AdditionStrategy from "../service/CalculationStrategy/AdditionStrategy"
+import CalculationContext from "../service/CalculationStrategy/CalculationContext"
+import CalculationStrategy from "../service/CalculationStrategy/CalculationStrategy"
+import DivisionStrategy from "../service/CalculationStrategy/DivisionStrategy"
+import MultiplicationStrategy from "../service/CalculationStrategy/MultiplicationStrategy"
+import RemainderStrategy from "../service/CalculationStrategy/RemainderStrategy"
+import SubtractionStrategy from "../service/CalculationStrategy/SubtractionStrategy"
 
 export default class TaskEntity {
     private _id: string

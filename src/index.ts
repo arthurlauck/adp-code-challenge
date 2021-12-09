@@ -3,7 +3,6 @@ import TaskService from './application/service/TaskService';
 import TaskController from './infra/controller/TaskController';
 import TaskRequestRepository from './infra/repository/TaskRequestRepository';
 
-const hostname: string = 'localhost';
 const port: number = 8000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
@@ -15,7 +14,7 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
   return response.end('Not found');
 });
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(`Server is running on http://${hostname}:${port}`);
+  console.log(`Server is running on port ${port}`);
 });

@@ -1,3 +1,3 @@
 export default interface CalculationStrategy {
-    calculate(left: number, right: number): number
+  calculate(left: number, right: number): number
 }

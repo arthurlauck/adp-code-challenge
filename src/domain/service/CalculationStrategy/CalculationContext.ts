@@ -1,14 +1,13 @@
-import TaskEntity from "../../entity/TaskEntity";
-import CalculationStrategy from "./CalculationStrategy";
+import CalculationStrategy from './CalculationStrategy';
 
 export default class CalculationContext {
-    private strategy: CalculationStrategy
+  private strategy: CalculationStrategy;
 
-    constructor(strategy: CalculationStrategy) {
-        this.strategy = strategy
-    }
+  constructor(strategy: CalculationStrategy) {
+    this.strategy = strategy;
+  }
 
-    calculate(task: TaskEntity): number {
-        return this.strategy.calculate(task.left, task.right)
-    }
+  calculate(left: number, right: number): number {
+    return this.strategy.calculate(left, right);
+  }
 }

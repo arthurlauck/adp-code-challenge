@@ -7,14 +7,15 @@ const hostname: string = 'localhost';
 const port: number = 8000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
-    if (request.url === '/' && request.method === 'GET') {
-        const taskController = new TaskController(new TaskService(new TaskRequestRepository))
-        return taskController.getTaskAndCalculate(request, response)
-    }
+  if (request.url === '/' && request.method === 'GET') {
+    const taskController = new TaskController(new TaskService(new TaskRequestRepository()));
+    return taskController.getTaskAndCalculate(request, response);
+  }
 
-    response.end('Not found');
+  return response.end('Not found');
 });
 
 server.listen(port, hostname, () => {
-    console.log(`Server is running on http://${hostname}:${port}`);
+  // eslint-disable-next-line no-console
+  console.log(`Server is running on http://${hostname}:${port}`);
 });
